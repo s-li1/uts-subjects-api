@@ -10,4 +10,6 @@ const fetchHtmlFromUrl = async(url: string): Promise<cheerio.Root> => {
     }
 }
 
-export default fetchHtmlFromUrl;
+module.exports = {
+    fetchHtmlFromUrl
+}
