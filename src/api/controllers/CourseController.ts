@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 const CourseService = require('../services/CourseService');
 
-const get = async(req: Request, res: Response) => {
+const get = async(req: Request, res: Response): Promise<any> => {
     try {
         const { name } = req.params;
         const result = await CourseService.getSubjects(name);
