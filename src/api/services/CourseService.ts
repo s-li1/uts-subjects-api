@@ -1,8 +1,8 @@
-const Helper = require('../helpers/helper');
+import { fetchHtmlFromUrl } from "../helpers/helper";
 
 const getSubjects = async(course: string): Promise<any> => {
     try {
-        const data = await Helper.fetchHtmlFromUrl(`https://www.handbook.uts.edu.au/${course}/lists/alpha.html`);
+        const data = await fetchHtmlFromUrl(`https://www.handbook.uts.edu.au/${course}/lists/alpha.html`);
         return data.html();
     }
     catch(error) {
