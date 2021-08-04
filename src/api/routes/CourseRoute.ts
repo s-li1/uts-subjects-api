@@ -1,10 +1,10 @@
 import express from 'express';
-const CourseController = require('../controllers/CourseController');
+import { get } from '../controllers/CourseController'
 
-const router = express.Router();
+const CourseRouter = express.Router();
 
-router.get('/:name', CourseController.get);
+CourseRouter.get('/:name', get);
 
-module.exports = router;
+export default CourseRouter;
 
 

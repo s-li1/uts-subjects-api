@@ -1,10 +1,10 @@
 import { Request, Response } from 'express';
-const CourseService = require('../services/CourseService');
+import { getSubjects } from '../services/CourseService';
 
 const get = async(req: Request, res: Response): Promise<any> => {
     try {
         const { name } = req.params;
-        const result = await CourseService.getSubjects(name);
+        const result = await getSubjects(name);
         res.json({
             data: result
         });
@@ -13,6 +13,4 @@ const get = async(req: Request, res: Response): Promise<any> => {
     }
 }
 
-module.exports = {
-    get
-}
+export { get };

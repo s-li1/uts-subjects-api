@@ -10,8 +10,6 @@ const getSubjects = async(course: string): Promise<any> => {
     }
 }
 
-module.exports = {
-    getSubjects
-};
+export { getSubjects };
 
 

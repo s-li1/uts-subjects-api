@@ -1,7 +1,8 @@
 import express from 'express';
-const CourseRoute = require('./CourseRoute');
+import CourseRouter from './CourseRoute';
+
 const router = express.Router();
 
-router.use('/courses', CourseRoute);
+router.use('/courses', CourseRouter);
 
-module.exports = router;
+export default router;
