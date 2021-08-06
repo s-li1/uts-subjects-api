@@ -7,7 +7,20 @@ const getSubjects = async(course: string): Promise<any> => {
             return el.type === 'text';
         })
         .text().trim().replace(/(\r\n|\n|\r)/gm, ".").split(".");
-        return subjectNames;
+        let subjectAnchorLinks: any[] = [];
+        $(".ie-images").find('a').each((i, el) => {
+            subjectAnchorLinks.push({
+                id: $(el).text(),
+                link: $(el).attr('href')
+            });
+        });
+        const subjectLinksAndIDs = subjectAnchorLinks.filter(subject => !isNaN(subject.id));
+        return subjectLinksAndIDs.map((subject, index) => {
+            return {
+                ...subject,
+                name: subjectNames[index]
+            }
+        });
     }
     catch(error) {
         console.log(error);
