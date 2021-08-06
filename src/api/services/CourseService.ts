@@ -9,16 +9,17 @@ const getSubjects = async(course: string): Promise<any> => {
         })
         .text().trim().replace(/(\r\n|\n|\r)/gm, ".").split(".");
 
-        let subjectAnchorLinks: any[] = [];
+        let subjectLinksAndIDs: any[] = [];
 
         $(".ie-images").find('a').each((i, el) => {
-            subjectAnchorLinks.push({
-                id: $(el).text(),
-                link: $(el).attr('href')
-            });
+            const id = $(el).text();
+            if (!isNaN(parseInt(id))) {
+                subjectLinksAndIDs.push({
+                    id: $(el).text(),
+                    link: $(el).attr('href')
+                });
+            }
         });
-
-        const subjectLinksAndIDs = subjectAnchorLinks.filter(subject => !isNaN(subject.id));
 
         return subjectLinksAndIDs.map((subject, index) => {
             return {
