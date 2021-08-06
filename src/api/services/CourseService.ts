@@ -1,12 +1,7 @@
+import { ISubject } from "../../types/types";
 import { fetchHtmlFromUrl } from "../helpers/helper";
 
-interface ISubject {
-    id: number,
-    link: string,
-    name: string
-}
-
-const getSubjects = async(course: string): Promise<ISubject[] | undefined> => {
+const getSubjects = async(course: string): Promise<ISubject[] | void> => {
     try {
         const $ = await fetchHtmlFromUrl(`https://www.handbook.uts.edu.au/${course}/lists/alpha.html`); 
         
