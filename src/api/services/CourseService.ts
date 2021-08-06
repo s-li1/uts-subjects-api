@@ -15,7 +15,7 @@ const getSubjects = async(course: string): Promise<any> => {
             const id = $(el).text();
             if (!isNaN(parseInt(id))) {
                 subjectLinksAndIDs.push({
-                    id: $(el).text(),
+                    id: id,
                     link: $(el).attr('href')
                 });
             }
